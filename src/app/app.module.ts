@@ -11,13 +11,17 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InfoComponent } from './info/info.component';
 import { AppRoutingModule } from './app-routing.module';
+import { EmployeeComponent } from './employee/employee.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    InfoComponent
+    EmployeeComponent,
+    InfoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
