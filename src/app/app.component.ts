@@ -16,85 +16,11 @@ export class AppComponent implements OnInit {
   }
   public employees: Employee[] = [];
 
-  updating = false; 
-
-  
-  employeeToUpdate = {
-    id:0,
-    firstName:"",
-    lastName:"",
-    gender: "",
-    email:"",
-    jobTitle:"",
-    phone:"",
-    imageUrl:"",
-    employeeCode:""
-  }
-
- 
+  updating = false;  
 
   constructor(private employeeService:EmployeeService) {
   }
 
   ngOnInit() {
-    this.getEmployees();
-  }
-
-
-  public getEmployees(): void{
-    this.employeeService.getEmployees().subscribe(
-    (response: Employee[]) => {
-      this.employees = response;
-    },
-    (error: HttpErrorResponse) => {
-      alert(error.message)
-    }
-    )
-  }
-
-
-  public addEmployee(registerForm: NgForm): void {
-    this.employeeService.addEmployee(registerForm.value).subscribe(
-      (resp) => {
-        console.log(resp);
-        this.getEmployees();
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }
-
-
-  public deleteEmployee(employee: Employee){
-    if(confirm('Are you sure you want to delete this employee?'))
-      this.employeeService.deleteEmployee(employee.id).subscribe(
-        (resp) => {
-          console.log(resp)
-          this.getEmployees();
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-  }
-
-
-  public editEmployee(employee: Employee){
-    this.employeeToUpdate = employee;
-  }
-
-  public updateEmployee(){
-    this.employeeService.updateEmployee(this.employeeToUpdate).subscribe(
-      (resp) => {
-        console.log(resp)
-        this.getEmployees();
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }
-
- 
+  } 
 }
